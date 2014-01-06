@@ -1,0 +1,157 @@
+TMyBabyRayTracer
+v6
+r1
+cCheck dependencies
+cCompileC build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/raytrace.o /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/MyBabyRayTracer/raytrace.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/main.o /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/MyBabyRayTracer/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/Debug/MyBabyRayTracer normal x86_64
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+c000000005243E79F00000000000000AA
+t1380181919
+s170
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/SDKSettings.plist
+c000000005267D77C000000000000044C
+t1382537084
+s1100
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/CoreServices/SystemVersion.plist
+c000000005267D77C00000000000001DB
+t1382537084
+s475
+
+N/System/Library/Frameworks/GLUT.framework/GLUT
+c000000005267654300000000000F71B0
+t1382507843
+s1012144
+
+N/System/Library/Frameworks/OpenGL.framework/OpenGL
+c0000000052676367000000000002C960
+t1382507367
+s182624
+
+N/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/MyBabyRayTracer/main.cpp
+c0000000052842E76000000000000011C
+t1384394358
+s284
+
+N/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/MyBabyRayTracer/raytrace.cpp
+c0000000052842F1400000000000000A6
+t1384394516
+s166
+
+N/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/MyBabyRayTracer/raytrace.h
+c0000000052843005000000000000086E
+t1384394757
+s2158
+
+N/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/build/Debug/MyBabyRayTracer
+t2
+s0
+
+N/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/MyBabyRayTracer.LinkFileList
+c0000000052842FC30000000000000146
+t1384394691
+s326
+
+N/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/main.o
+t1384394692
+s69008
+
+N/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/raytrace.o
+t1384394759
+s2004
+
+CBuild AST from /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/MyBabyRayTracer/main.cpp
+r0
+
+CBuild AST from /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/MyBabyRayTracer/raytrace.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesfce345876734b841^107a46876734b841^---0#1#1#--18"Check dependencies36"920E7455-082B-4454-8795-F63F8E28F744-
+
+CCompileC build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/main.o /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/MyBabyRayTracer/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s406087491.096710
+e406087492.243665
+r1
+xCompileC
+xbuild/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/main.o
+x/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/MyBabyRayTracer/main.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/MyBabyRayTracer/main.cpp
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection108"Compile /Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/MyBabyRayTracer/main.cpp180"CompileC build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/main.o MyBabyRayTracer/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler84f018436734b841^78623e446734b841^---0#0#1#-19%DVTDocumentLocation2@117"file:///Users/Hadoop/Documents/CS1566%20-%20Intro%20to%20Computer%20Graphics/MyBabyRayTracer/MyBabyRayTracer/main.cpp0000000000000000^3401"CompileC build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/main.o MyBabyRayTracer/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/MyBabyRayTracer-generated-files.hmap -I/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/MyBabyRayTracer-own-target-headers.hmap -I/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/MyBabyRayTracer-all-target-headers.hmap -iquote /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/MyBabyRayTracer-project-headers.hmap -I/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/DerivedSources/x86_64 -I/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/DerivedSources -F/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/Debug -MMD -MT dependencies -MF /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/main.dia -c /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/MyBabyRayTracer/main.cpp -o /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/main.o36"F9435FB8-F092-4E85-B051-0E03C77E30D1-
+b9BACEC9D-57A0-4070-9B85-17045F61ABF7
+
+CCompileC build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/raytrace.o /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/MyBabyRayTracer/raytrace.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s406087559.274344
+e406087559.930250
+r1
+xCompileC
+xbuild/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/raytrace.o
+x/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/MyBabyRayTracer/raytrace.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/MyBabyRayTracer/raytrace.cpp
+d/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/MyBabyRayTracer/raytrace.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection112"Compile /Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/MyBabyRayTracer/raytrace.cpp188"CompileC build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/raytrace.o MyBabyRayTracer/raytrace.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compilerb29e46876734b841^7425ee876734b841^---0#0#1#-19%DVTDocumentLocation2@121"file:///Users/Hadoop/Documents/CS1566%20-%20Intro%20to%20Computer%20Graphics/MyBabyRayTracer/MyBabyRayTracer/raytrace.cpp0000000000000000^3425"CompileC build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/raytrace.o MyBabyRayTracer/raytrace.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/MyBabyRayTracer-generated-files.hmap -I/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/MyBabyRayTracer-own-target-headers.hmap -I/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/MyBabyRayTracer-all-target-headers.hmap -iquote /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/MyBabyRayTracer-project-headers.hmap -I/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/DerivedSources/x86_64 -I/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/DerivedSources -F/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/Debug -MMD -MT dependencies -MF /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/raytrace.d --serialize-diagnostics /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/raytrace.dia -c /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/MyBabyRayTracer/raytrace.cpp -o /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/raytrace.o36"4EFF7B6D-068F-4E0B-9241-DFA54F0DE8E8-
+b5DA9559B-B22E-415B-B94D-3F97A36C8CA7
+
+CLd /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/Debug/MyBabyRayTracer normal x86_64
+s406087559.931627
+e406087560.317933
+r1
+xLd
+x/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/build/Debug/MyBabyRayTracer
+xnormal
+xx86_64
+d/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/MyBabyRayTracer.LinkFileList
+d/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/raytrace.o
+d/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/main.o
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/GLUT.framework/GLUT
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libc++.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libSystem.dylib
+d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.osx.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcache.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcommonCrypto.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcompiler_rt.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcopyfile.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcorecrypto.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdispatch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdyld.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libkeymgr.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/liblaunch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libmacho.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libquarantine.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libremovefile.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_asl.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_blocks.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_c.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_configuration.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_dnssd.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_info.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_kernel.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_m.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_malloc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_network.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_notify.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_platform.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_pthread.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_sandbox.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_stats.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunwind.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libxpc.dylib
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection108"Link /Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer/build/Debug/MyBabyRayTracer44"Ld build/Debug/MyBabyRayTracer normal x86_646491ee876734b841^eb5451886734b841^---0#0#1#--1197"Ld build/Debug/MyBabyRayTracer normal x86_64    cd "/Users/Hadoop/Documents/CS1566 - Intro to Computer Graphics/MyBabyRayTracer"    setenv MACOSX_DEPLOYMENT_TARGET 10.9    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/Debug -F/Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/Debug -filelist /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/MyBabyRayTracer.LinkFileList -mmacosx-version-min=10.9 -stdlib=libc++ -framework GLUT -framework OpenGL -Xlinker -dependency_info -Xlinker /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/MyBabyRayTracer.build/Debug/MyBabyRayTracer.build/Objects-normal/x86_64/MyBabyRayTracer_dependency_info.dat -o /Users/Hadoop/Documents/CS1566\ -\ Intro\ to\ Computer\ Graphics/MyBabyRayTracer/build/Debug/MyBabyRayTracer36"913F356C-91B4-49DD-BA86-F06350A96974-
+b5DA9559B-B22E-415B-B94D-3F97A36C8CA7
+
