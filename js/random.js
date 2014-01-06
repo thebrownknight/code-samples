@@ -49,9 +49,12 @@ String.prototype.replaceEntity = (function() {
 	return function () {
 		// Calls the string replace method, looking for 
 		// substrings that start with '&' and end with ';'.
+
 		// If the characters between are in the entity table,
 		// then replace the entity with the character from
 		// the table.
+
+		// E.g. &quot; will be replaced with a ".
 		return this.replace(/&[^&;];/g, function(a, b) {
 			var r = entity[b];
 			return typeof r === 'string' ? r : a;
