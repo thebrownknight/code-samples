@@ -1,0 +1,71 @@
+/*generic*/
+.clearfix:after,
+.cf:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.clearfix,
+.cf{display:block;}
+* html .clearfix,
+* html .cf{height:1%;}
+
+p.ps-standard-row {
+	margin-bottom: 3px;
+	width: 100%;
+	overflow: hidden;
+}
+	p.ps-standard-row label {
+		float: left;
+		width: 100%;
+		padding-top: 3px;
+		display: block;
+	}
+	p.ps-standard-row input { width: 99%; }
+
+.ps-hidden-sections { display: none; }
+
+
+
+/** Sortable list field **/
+.ps-sortable-list { position: relative; }
+	.ps-sortable-list .sortable-item {
+		background: #fff;
+		border: 1px solid #d8d8d8;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	.ps-sortable-list .sortable-head,
+	.ps-sortable-list .sortable-body {
+		padding: 10px;
+		position: relative;
+	}
+	.ps-sortable-list .sortable-title {
+		margin-right: 20px;
+		float: left;
+	}
+	.ps-sortable-list .sortable-body {
+		padding-top: 0;
+		display: none;
+	}
+	.ps-sortable-list .sortable-handle { float: right; }
+	.ps-sortable-list .sortable-handle a {
+		position: absolute;
+		right: 0px;
+		top: 0;
+		display: block;
+		width: 30px;
+		height: 30px;
+		text-indent: -999em;
+		background: transparent url(../images/tab-arrows.png) no-repeat 8px -64px;
+		border-bottom-color: #eee;
+	}
+	.ps-sortable-list .sortable-delete { font-style: normal; }
+	.ps-sortable-add-new { margin-top: 10px; }
+	/*#page-builder .ps-sortable-list .ui-state-highlight {
+		height: 38px;
+		margin: 0 0 6px;
+		float: none;
+	}*/
+
+.widget-placeholder {
+	border: 1px dashed #bbb;
+ 	margin: 0 auto 10px;
+ }
