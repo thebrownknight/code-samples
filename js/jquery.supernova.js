@@ -2,9 +2,9 @@
 * Author: Nikhil Venkatesh
 * Date: 06/25/13
 * Description: SNeT v0.2 extension to the AstroShelf project
-* 
+*
 * 10/21/2013 - Now on SNeT v0.3
-* * Revised by: Wen Gao 
+* * Revised by: Wen Gao
 * Date: 10/21/2013
 * Description: Change the layout of View Plan page
 ************************************************************/
@@ -24,31 +24,31 @@ function Comparator(a,b){
 //TODO
 function recalculate(item) {
 			var txt = $(item).closest('td').find('span');
-			
+
 			var colid = $(item).closest('td').index();
 			var value = parseInt($(item).val());
 			var remainTd = $(item).closest('table').find("tr:last td:eq("+colid+")");
 			var scheduleTd = $(item).closest('table').find("tr:last").prev().find("td:eq("+colid+")");
-			
+
 			var index = colid - 3;
 			var id = "#dateHeader"+index;
 			var headerSpan = $(id);
-			
+
 			//Observation times calculation
 			var freqTd = $(item).closest('tr').find("td:last");
 			var freqSpan = freqTd.find("span");
 			var freqValue = parseInt(freqSpan.html().split("/")[0]); //selected value
 			var specValue = parseInt(freqTd.find("input").val()); //User specified value
-			
+
 			//Supernova name (first td)
 			var snSpan = $(item).closest('tr').find("td:first").find("span");
-			
+
 			var sValue = parseInt(scheduleTd.find("span").html());
 			var color = scheduleTd.find("span").css("color");
 			var rValue = parseInt(remainTd.find("span").html());
 			var sHtml = 0;
 			var rHtml = 0;
-			
+
 			if ($(item).is(':checked')) {
 				txt.css("color","blue");
 			//	var date = dateList[colid-3];
@@ -69,8 +69,8 @@ function recalculate(item) {
 				freqSpan.css("color","");
 				snSpan.css("color","");
 			}
-			
-			
+
+
 			if(rHtml<0){
 				headerSpan.css("color","red");
 				scheduleTd.html("<span style='color:red;margin-left: 25px;font-weight:bold'>"+sHtml+"</span>");
@@ -92,7 +92,7 @@ function isAboveLimit(date, scheduled){
 }
 
 
-/* Revise table layout functions 
+/* Revise table layout functions
  * By Wen, 10/09/2013
  * */
 function generateTable(supernova, planlist, header) {
@@ -154,7 +154,7 @@ function generateTable(supernova, planlist, header) {
 		result.push(item);
 		j++;
 	}
-	
+
 		rowsize = j;
 		colsize = i + 2;
 
@@ -189,7 +189,7 @@ function generateTable(supernova, planlist, header) {
 
 		result = result.sort(Comparator);  //Sort the supernova according to RedShift(z)
 		result.push(foot1,foot2,foot3);
-		
+
 		return {
 			"plan" : result,
 			"header" : header,
@@ -237,7 +237,7 @@ function generateTable(supernova, planlist, header) {
 
             return my_global;
         }());
-        
+
         // INIT Module - handles the initialization of user specific items - e.g. lists/objects, experiment parameters, plans
         // Revealing module pattern
         var INIT = (function(){
@@ -247,12 +247,12 @@ function generateTable(supernova, planlist, header) {
             var initExperiments = function(){
                 GLOBAL.master_experiments_array = [];
                 var tester = true;
-                
+
                 sendAjax(
-                    "POST", 
-                    baseURLs.EXPERIMENT_URL, 
-                    { user_id: GLOBAL.userID, retrieveExperiments: 1 }, 
-                    "json", 
+                    "POST",
+                    baseURLs.EXPERIMENT_URL,
+                    { user_id: GLOBAL.userID, retrieveExperiments: 1 },
+                    "json",
                     function(json_msg){
                         var id_ar = [], exp_name_ar = [];   //temporary arrays to store the experiment ids and names
                         $.each(json_msg, function(index, elem){
@@ -263,13 +263,13 @@ function generateTable(supernova, planlist, header) {
                         GLOBAL.master_experiments_array['names'] = exp_name_ar;
 
                         if(GLOBAL.userID == 101) {
-                            populateDropdown("myExperimentSelector", GLOBAL.master_experiments_array['names'], 
+                            populateDropdown("myExperimentSelector", GLOBAL.master_experiments_array['names'],
                                 { 'selected': 'A_TEST_CASE', 'onchange': experimentChangeHandler }
                             );
                             if(tester)
                                 $('#myExperimentSelector').trigger('change');
                         } else {
-                            populateDropdown("myExperimentSelector", GLOBAL.master_experiments_array['names'], 
+                            populateDropdown("myExperimentSelector", GLOBAL.master_experiments_array['names'],
                                 { 'selected': 'none', 'onchange': experimentChangeHandler }
                             );
                         }
@@ -299,11 +299,11 @@ function generateTable(supernova, planlist, header) {
                         console.log(GLOBAL.master_lists_array['names']);
 
                         if(GLOBAL.userID == 101) {
-                            populateDropdown("scheduleListSelector", GLOBAL.master_lists_array['names'], 
+                            populateDropdown("scheduleListSelector", GLOBAL.master_lists_array['names'],
                                 { 'selected': 'A_TEST_CASE', 'onchange': listChangeHandler }
                             );
                         } else {
-                            populateDropdown("scheduleListSelector", GLOBAL.master_lists_array['names'], 
+                            populateDropdown("scheduleListSelector", GLOBAL.master_lists_array['names'],
                                 { 'selected': 0, 'onchange': listChangeHandler }
                             );
                         }
@@ -345,7 +345,7 @@ function generateTable(supernova, planlist, header) {
                     dataType: "json"
                 }).done(function(json_msg){
                     console.log(Object.keys(json_msg));
-                    
+
                     // Update the experiment list
                     UPDATE.updateExperiments({'selected': $('#experimentName').val()});
                     // After updating the configurations dropdown, trigger the dropdown to update the objects below
@@ -373,7 +373,7 @@ function generateTable(supernova, planlist, header) {
             };
 
             var saveList = function(options){
-                /* Use JSON.stringify to serialize the array in order to pass it in the POST AJAX call 
+                /* Use JSON.stringify to serialize the array in order to pass it in the POST AJAX call
                 * TODO: Take a look at $.params for serializing
                 */
                 var selected, listInfo, objectIDList;
@@ -387,7 +387,7 @@ function generateTable(supernova, planlist, header) {
                 if (options.hasOwnProperty('objectList'))
                     objectIDList = options['objectList'];
 
-                if (options.hasOwnProperty('listInfo')) 
+                if (options.hasOwnProperty('listInfo'))
                     listInfo = options['listInfo'];     // stores the current list's information (name and description)
 
                 $.ajax({
@@ -436,10 +436,10 @@ function generateTable(supernova, planlist, header) {
                 console.log("SELECTED: " + selected);
 
                 sendAjax(
-                    "POST", 
-                    baseURLs.EXPERIMENT_URL, 
-                    { user_id: GLOBAL.userID, retrieveExperiments: 1 }, 
-                    "json", 
+                    "POST",
+                    baseURLs.EXPERIMENT_URL,
+                    { user_id: GLOBAL.userID, retrieveExperiments: 1 },
+                    "json",
                     function(json_msg){
                         var id_ar = [], exp_name_ar = [];
                         $.each(json_msg, function(index, elem){
@@ -449,7 +449,7 @@ function generateTable(supernova, planlist, header) {
                         GLOBAL.master_experiments_array['ids'] = id_ar;
                         GLOBAL.master_experiments_array['names'] = exp_name_ar;
 
-                        populateDropdown("myExperimentSelector", GLOBAL.master_experiments_array['names'], 
+                        populateDropdown("myExperimentSelector", GLOBAL.master_experiments_array['names'],
                             { 'selected': selected, 'onchange': experimentChangeHandler }
                         );
                     },
@@ -486,11 +486,11 @@ function generateTable(supernova, planlist, header) {
                         console.log(GLOBAL.master_lists_array['names']);
 
                         if(GLOBAL.userID == 101) {
-                            populateDropdown("scheduleListSelector", GLOBAL.master_lists_array['names'], 
+                            populateDropdown("scheduleListSelector", GLOBAL.master_lists_array['names'],
                                 { 'selected': 'A_TEST_CASE', 'onchange': listChangeHandler }
                             );
                         } else {
-                            populateDropdown("scheduleListSelector", GLOBAL.master_lists_array['names'], 
+                            populateDropdown("scheduleListSelector", GLOBAL.master_lists_array['names'],
                                 { 'selected': selected, 'onchange': listChangeHandler }
                             );
                         }
@@ -640,7 +640,7 @@ function generateTable(supernova, planlist, header) {
             //autoResize: true,
             width: 1500,
             height: 900,
-            minHeight: 300, 
+            minHeight: 300,
             maxWidth: 1500,
             autoOpen: false,
             draggable: false,
@@ -657,7 +657,7 @@ function generateTable(supernova, planlist, header) {
 
                     /* Get the childList, remove the selectedSupernovaTab class from all, find the second child, add the class back
                     * then hide the tabContent and then fade in the correct div matching the second child
-                     */ 
+                     */
                     var searchResults = this.childList.removeClass("selectedSupernovaTab").eq(index).addClass("selectedSupernovaTab");
 
                     this.tabContent.hide(); //Hide all tab content
@@ -695,14 +695,14 @@ function generateTable(supernova, planlist, header) {
                 }
         },
 
-        /* 
-            Set up all the click handlers, and initialize variables for all sections. 
+        /*
+            Set up all the click handlers, and initialize variables for all sections.
             Do it here because that way everything will be initialized before loading
             SNeT.
         */
         _create: function() {
                     $.ui.dialog.prototype._create.apply(this);  //call the constructor of the ui.dialog widget
-           
+
                     //set the variables needed - cache when appropriate
                     var self = this.element,
                         that = this,
@@ -743,7 +743,7 @@ function generateTable(supernova, planlist, header) {
                                     $("#searchResultsOverlay").css({"display": "block", "z-index": "10"});
                                     $("#searchResultsSupernova").find("> div:not(:first)").css("visibility", "hidden");
                                 } else {
-                                    
+
                                 }
                                 pvalue = "39.6%";
                                 break;
@@ -769,13 +769,13 @@ function generateTable(supernova, planlist, header) {
                                 pvalue = "100%";
                                 break;
                         }
-                       that.progressBar.children( ".ui-progressbar-value" ).animate({width: pvalue}, 400, 'swing'); //animate the progressbar 
+                       that.progressBar.children( ".ui-progressbar-value" ).animate({width: pvalue}, 400, 'swing'); //animate the progressbar
 
                         $($(this).find("a").attr("href")).fadeIn();
 
                         that._setSearchClickHandlers(that.selectedSearchIndex);
                     });
-                    
+
                     $( ".snbuttons" ).button();
 
                     /* Make sure the numeric input fields only accept numbers! */
@@ -792,7 +792,7 @@ function generateTable(supernova, planlist, header) {
                                 event.preventDefault();
                             }
                         }
-                            
+
                     });
 
                     // Call the RESET module to reset everything before starting
@@ -839,7 +839,7 @@ function generateTable(supernova, planlist, header) {
 
                         $( '#supernovaAdvValue' ).on('change', function(){
                             advOptions['value'][$(this).parent().index()-1] = $("#supernovaAdvValue").val();
-                        });                      
+                        });
 
                         $( "#searchSupernovaAdvanced" ).on('click', '.addAdvValue', function(event){
                             //var html_str = $( ".supernovaAdvOption:last").html();
@@ -918,7 +918,7 @@ function generateTable(supernova, planlist, header) {
                             aDragged.splice(the_pos, 1);
                             if(that.userListIDs)
                                 that.userListIDs.splice(the_pos, 1);    //if the user removes an item from a selected list, remove it from the global list
-                            
+
                         });
 
                         /*---get more info from row in DataTable---*/
@@ -958,8 +958,8 @@ function generateTable(supernova, planlist, header) {
                                 if ( draggedIndex === -1 ) {
                                     aDragged.push( copy_draggableIDs[i] );
                                     con_drag_and_user_lists.push( copy_draggableIDs[i] );
-                                } 
-                               
+                                }
+
                             }
 
                         });
@@ -998,7 +998,7 @@ function generateTable(supernova, planlist, header) {
                                 if ( draggedIndex === -1 ) {
                                     aDragged.push( copy_draggableIDs[i] );
                                     con_drag_and_user_lists.push( copy_draggableIDs[i] );
-                                } 
+                                }
                                 // else {
                                 //     aDragged.splice( draggedIndex, 1 );
                                 // }
@@ -1007,7 +1007,7 @@ function generateTable(supernova, planlist, header) {
                             //oTable.fnDraw();
                         });
 
-                        $( "#clearList" ).on('click', function(event){ 
+                        $( "#clearList" ).on('click', function(event){
                             newListTable.fnClearTable();    //use built-in DataTables method to clear the entire table
                             console.log(aDragged);
                             for(var i=0, oLen = aDragged.length; i < oLen; ++i){
@@ -1018,16 +1018,16 @@ function generateTable(supernova, planlist, header) {
                         });
 
                         $( "#saveList" ).button("option", "icons", { primary: "ui-icon-disk" } )
-                            .on( 'click', function(event){ 
+                            .on( 'click', function(event){
                                 if(newListTable.fnGetData().length > 0)
-                                    createNewListDialog.dialog( 'open' ); 
+                                    createNewListDialog.dialog( 'open' );
                                 else
                                     alert("There are no objects in your list!");
                         });
 
                         $( "#updateList" ).button("option", { "icons": { primary: "ui-icon-refresh" }, "disabled": true } )
                             .on( 'click', function(event){
-                                /* Use JSON.stringify to serialize the array in order to pass it in the POST AJAX call 
+                                /* Use JSON.stringify to serialize the array in order to pass it in the POST AJAX call
                                 * TODO: Take a look at $.params for serializing
                                 */
 
@@ -1043,7 +1043,7 @@ function generateTable(supernova, planlist, header) {
                                     data: { save: 1, 'deletion': 1, '_listInfo': JSON.stringify(that._cur_user_list), '_userID': that.userID, '_objectIDs': JSON.stringify(objectIDList) },
                                     dataType: "json",
                                     "error": function(jqXHR, textStatus, errorThrown) {
-                                            console.log(textStatus, errorThrown); 
+                                            console.log(textStatus, errorThrown);
                                     }
                                 }).done(function(json_msg){
                                     if(json_msg['success']){
@@ -1080,7 +1080,7 @@ function generateTable(supernova, planlist, header) {
                                     SAVE.saveList({ 'selected': listName, 'objectList': objectIDList, 'listInfo': listInfo });
                                     createNewListDialog.dialog("close");
                                 }
-                        });  
+                        });
 
                     /*************************************/
                     /*  List Management Initializations  */
@@ -1094,7 +1094,7 @@ function generateTable(supernova, planlist, header) {
                         var list_id = GLOBAL.master_lists_array['ids'][$.inArray(selectedList, GLOBAL.master_lists_array['names'])];
 
                         var answer = confirm( 'Are you sure you want to delete list ' + selectedList + '?' );
-                        
+
                         if (answer) {
                             $.ajax( {
                                 type: 'POST',
@@ -1121,7 +1121,7 @@ function generateTable(supernova, planlist, header) {
                     });
 
                     $( '#saveNewLMList' ).on('click', function(event){
-                        createNewListDialog.dialog( 'open' ); 
+                        createNewListDialog.dialog( 'open' );
                     });
 
                     $( '#listPermissions' ).on('click', function(event){
@@ -1178,7 +1178,7 @@ function generateTable(supernova, planlist, header) {
 
                     /*********************************/
                     /*   Scheduler Initializations   */
-                    /*********************************/  
+                    /*********************************/
 
                     planParams = {};    //global object that holds all the plan parameters
                     clickedObjText = null;
@@ -1219,13 +1219,13 @@ function generateTable(supernova, planlist, header) {
                                 $( '#saveExperimentParams, #updateExperiment' ).button("option", "disabled", true);
                                 $( '#scheduleDatesAndHours' ).empty();
                             }
-                            if(event.keyCode == 13) // if the user hits return, manually call blur 
+                            if(event.keyCode == 13) // if the user hits return, manually call blur
                                 $(this).keyup();
                         //}
-                    }); 
+                    });
 
                     var makeNightPicker = function () {
-                        $('[id^="schNight"]').datepicker({ 
+                        $('[id^="schNight"]').datepicker({
                             dateFormat: 'yy-mm-dd',
                             beforeShowDay: function(date){
                                 dateArray = [];
@@ -1253,7 +1253,7 @@ function generateTable(supernova, planlist, header) {
                             //             return false;
                             //         }
                             //     });
-                            // } 
+                            // }
                         });
                     };
 
@@ -1273,7 +1273,7 @@ function generateTable(supernova, planlist, header) {
                                 $(this).prop('checked', true);
                                 $(this).attr('value', 'a');
                             }
-                            
+
                             console.log("VAL: " + $(this).val());
                             aChecked = !aChecked;
                         });
@@ -1445,7 +1445,7 @@ function generateTable(supernova, planlist, header) {
                                     data: {json_str: JSON.stringify(planParams), state: 0},
                                     dataType: "text"
                                 }).done(function(json_msg){
-                                                      	json_msg = jQuery.parseJSON(json_msg); 
+                                                      	json_msg = jQuery.parseJSON(json_msg);
                                     if(!json_msg["error"]) {
                                         $("#viewPlanOverlay").css("display", "none");
                                         $("#viewPlanSupernova > table, #viewPlanSupernova > div:not(:first)").css("visibility", "visible");
@@ -1474,16 +1474,16 @@ function generateTable(supernova, planlist, header) {
                                                 else
                                                     create("error-template", { title: "Sorry you don't like it!", text: 'Feel free to \'Try Again\' to generate a new plan with the current data. Hint: Try using different combinations of the \'Strategy\' and \'Algorithm\' in the Scheduler. ' }, { custom: true } );
                                             });
-                                            $( "#likePlan, #dislikePlan" ).button("disable"); 
+                                            $( "#likePlan, #dislikePlan" ).button("disable");
                                         });
-                                        
+
                                         that._setUpViewPlan(json_msg, planParams, json_msg.percentage, json_msg.incomplete, json_msg.miss_deadline);
                                     	create("basic-template", { title: 'Success!', text: 'Plan generated!' }, { custom: true } );
                                     	console.log(json_msg);
                                      } else {
                                          create("error-template", { title: 'Error!', text: 'There was an error in generating your plan. Please try again.' }, { custom: true } );
                                      }
-                                	
+
                                 }).fail(function(jqXHR, textStatus, errorThrown){
                                     console.log(textStatus, errorThrown);
                                     create("error-template", { title: 'Error!', text: 'There was an error in generating your plan. Please try again.' }, { custom: true } );
@@ -1492,12 +1492,12 @@ function generateTable(supernova, planlist, header) {
                                 });
 
                                 generatePlanDialog.dialog("close");
-                        });  
+                        });
 
 
                     /*********************************/
                     /*   View Plan Initializations   */
-                    /*********************************/ 
+                    /*********************************/
                     $( "#tryagainPlan" ).on('click', function(){
                         $.ajax({
                             type: "POST",
@@ -1540,7 +1540,7 @@ function generateTable(supernova, planlist, header) {
             });
 
             var success = false;
-                
+
                 for(var key in GLOBAL.master_objects_array) {
                     if(GLOBAL.master_objects_array.hasOwnProperty(key)) {
                         var moa = GLOBAL.master_objects_array[key], objInfo = [], mainObjInfo = {}, supObjInfo = {};
@@ -1600,7 +1600,7 @@ function generateTable(supernova, planlist, header) {
                     this.userID = getUserId();  //store the userID as a property of the widget for global access within the widget
                     GLOBAL.userID = (GLOBAL.userID != -1) ? GLOBAL.userID : getUserId();
                     ////////////////////////////////////////////////////
-                    // 
+                    //
                     //   INIT FUNCTIONS
                     //
                     ////////////////////////////////////////////////////
@@ -1627,10 +1627,10 @@ function generateTable(supernova, planlist, header) {
                             && (that.master_objects_array[coj].bpeak && that.master_objects_array[coj].bpeak !== " " && that.master_objects_array[coj].bpeak.length > 0)
                             && (that.master_objects_array[coj].obsdur && that.master_objects_array[coj].obsdur !== " " && that.master_objects_array[coj].obsdur.length > 0)
                             && (that.master_objects_array[coj].obsgap && that.master_objects_array[coj].obsgap !== " " && that.master_objects_array[coj].obsgap.length > 0)
-                            && (that.master_objects_array[coj].obstimes && that.master_objects_array[coj].obstimes !== " " && that.master_objects_array[coj].obstimes.length > 0)) 
+                            && (that.master_objects_array[coj].obstimes && that.master_objects_array[coj].obstimes !== " " && that.master_objects_array[coj].obstimes.length > 0))
                         {
                                 co.css({"border": "3px solid #039F12"});
-                                
+
                                 co.css({'background': "rgb(180,221,180)"}); /* Old browsers */
                                 co.css({'background': "-moz-linear-gradient(top, rgba(222,252,225,1) 0%, rgba(198,250,203,1) 12%, rgba(178,248,184,1) 33%, rgba(129,255,140,1) 67%, rgba(111,255,123,1) 100%)"}); /* FF 3.6+ */
                                 co.css({'background': "-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(222,252,225,1)), color-stop(12%,rgba(198,250,203,1)), color-stop(33%,rgba(178,248,184,1)), color-stop(67%,rgba(129,255,140,1)), color-stop(100%,rgba(111,255,123,1)))"}); /* Safari, Chrome */
@@ -1643,7 +1643,7 @@ function generateTable(supernova, planlist, header) {
                                 that.validateScheduler("save", coj);
                             } else {
                                 co.css({"border": "3px solid #F90606"});
-                                
+
                                 co.css({'background': "rgb(255,173,145)"}); /* Old browsers */
                                 co.css({'background': "-moz-linear-gradient(top,  rgba(255,173,145,1) 0%, rgba(252,135,114,1) 100%)"}); /* FF 3.6+ */
                                 co.css({'background': "-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,173,145,1)), color-stop(100%,rgba(252,135,114,1)))"}); /* Safari, Chrome */
@@ -1652,7 +1652,7 @@ function generateTable(supernova, planlist, header) {
                                 co.css({'background': "-ms-linear-gradient(top,  rgba(255,173,145,1) 0%,rgba(252,135,114,1) 100%)"}); /* IE10+*/
                                 co.css({'background': "linear-gradient(to bottom,  rgba(255,173,145,1) 0%,rgba(252,135,114,1) 100%)"}); /* W3C */
                                 co.css({'filter': "progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffad91', endColorstr='#fc8772',GradientType=0 )" });
-                            }   
+                            }
         },
 
         /* Populates the objects from the user's selected list and sets up event handlers for the objects, the save button, and the supplemental textfields. */
@@ -1679,7 +1679,7 @@ function generateTable(supernova, planlist, header) {
 
                     /* Step 1: Initialize the datatables instance. */
                     scheduleTable = $("#scheduleObjectDisplay").dataTable( {
-                            "aoColumnDefs": [ 
+                            "aoColumnDefs": [
                                 { "aTargets": [ 0 ], "sTitle": "Supernovae" },
                                 { "aTargets": [ 1 ], "sTitle": "R.A.", "sType": "numeric", "sWidth": "9%" },
                                 { "aTargets": [ 2 ], "sTitle": "Dec.", "sType": "numeric", "sWidth": "9%" },
@@ -1706,7 +1706,7 @@ function generateTable(supernova, planlist, header) {
                             "sScrollX": "100%",
                             "sScrollXInner": "110%"
                         }).css('width', '');
-            
+
                 // new AutoFill( scheduleTable, {
                 //     "aoColumnDefs": [
                 //         {
@@ -1729,7 +1729,7 @@ function generateTable(supernova, planlist, header) {
                 //                 //     $('#obsgaptf' + iDiff).trigger('change');
                 //                 // if(oPrepped.iStart == 4)
                 //                 //     $('#obstimestf' + iDiff).trigger('change');
-                                
+
                 //                 return oPrepped.sStr.replace( sToken, iReplace+oPrepped.sPostFix );
                 //             },
                 //             "aTargets": [ 7, 8, 9, 10, 11 ]
@@ -1757,7 +1757,7 @@ function generateTable(supernova, planlist, header) {
                         ret_str += '<p>' + this.description + '</p>';
                         ret_str += '</div>'
                     });
-                    
+
                     var windowName = "More details on SUPERNOVA";
                     var windowSize = "width=800,height=800,scrollbars=yes";
                     var OpenWindow = window.open('', windowName, windowSize);
@@ -1793,7 +1793,7 @@ function generateTable(supernova, planlist, header) {
                     var clickedObjText = $(this).parents('tr').children(':first').text();
                     GLOBAL.master_objects_array[clickedObjText].mag = $(this).val().length > 0 ? $(this).val() : "0";
                     console.log(GLOBAL.master_objects_array);
-                    
+
                     event.stopPropagation();
                 }).trigger('change');
                 $('[id^="redshifttf"]').on('change', function(event){
@@ -1801,7 +1801,7 @@ function generateTable(supernova, planlist, header) {
                     var clickedObjText = $(this).parents('tr').children(':first').text();
                     GLOBAL.master_objects_array[clickedObjText].redshift = $(this).val().length > 0 ? $(this).val() : "0";
                     console.log(GLOBAL.master_objects_array);
-                    
+
                     event.stopPropagation();
                 }).trigger('change');
                 $('[id^="phasetf"]').on('change', function(event){
@@ -1809,7 +1809,7 @@ function generateTable(supernova, planlist, header) {
                     var clickedObjText = $(this).parents('tr').children(':first').text();
                     GLOBAL.master_objects_array[clickedObjText].phase = $(this).val().length > 0 ? $(this).val() : "undefine";
                     console.log(GLOBAL.master_objects_array);
-                    
+
                     event.stopPropagation();
                 }).trigger('change');
 
@@ -1819,7 +1819,7 @@ function generateTable(supernova, planlist, header) {
                     var clickedObjText = $(this).parents('tr').children(':first').text();
                     GLOBAL.master_objects_array[clickedObjText].priority = $(this).val().length > 0 ? $(this).val() : "0.5";
                     console.log(GLOBAL.master_objects_array);
-                    
+
                     event.stopPropagation();
                 }).trigger('change');
                 $('[id^="bpeaktf"]').on('change', function(event){
@@ -1827,7 +1827,7 @@ function generateTable(supernova, planlist, header) {
                     var clickedObjText = $(this).parents('tr').children(':first').text();
                     GLOBAL.master_objects_array[clickedObjText].bpeak = $(this).val().length > 0 ? $(this).val() : " ";
                     console.log(GLOBAL.master_objects_array);
-                    
+
                     event.stopPropagation();
                 });
                 $('[id^="obsdurtf"]').on('change', function(event){
@@ -1835,7 +1835,7 @@ function generateTable(supernova, planlist, header) {
                     var clickedObjText = $(this).parents('tr').children(':first').text();
                     GLOBAL.master_objects_array[clickedObjText].obsdur = $(this).val().length > 0 ? $(this).val() : " ";
                     console.log(GLOBAL.master_objects_array);
-                    
+
                     event.stopPropagation();
                 });
                 $('[id^="obsgaptf"]').on('change', function(event){
@@ -1843,7 +1843,7 @@ function generateTable(supernova, planlist, header) {
                     var clickedObjText = $(this).parents('tr').children(':first').text();
                     GLOBAL.master_objects_array[clickedObjText].obsgap = $(this).val().length > 0 ? $(this).val() : " ";
                     console.log(GLOBAL.master_objects_array);
-                    
+
                     event.stopPropagation();
                 });
                 $('[id^="obstimestf"]').on('change', function(event){
@@ -1851,10 +1851,10 @@ function generateTable(supernova, planlist, header) {
                     var clickedObjText = $(this).parents('tr').children(':first').text();
                     GLOBAL.master_objects_array[clickedObjText].obstimes = $(this).val().length > 0 ? $(this).val() : " ";
                     console.log(GLOBAL.master_objects_array);
-                    
+
                     event.stopPropagation();
                 });
-               
+
         },
 
         /* Utility function for getting all the numbered IDs of the dragged objects in the new list. */
@@ -1892,7 +1892,7 @@ function generateTable(supernova, planlist, header) {
                     url: baseURLs.LIST_URL,
                     data: { retrieveLists: 1, _userID: GLOBAL.userID }
                 }).done(success_callback)
-                .fail(failure_callback);  
+                .fail(failure_callback);
             }
 
                 //cache the user's lists in one array that can be used instead of making multiple calls
@@ -1904,7 +1904,7 @@ function generateTable(supernova, planlist, header) {
                         console.log("ERROR:\n" + name + " and " + ra + " and " + dec + " and " + epsilon);
                         return;
                     }
-                    
+
                     /*  Set the values as empty strings to keep the AJAX call from complaining.  */
                     var asscData = {
                         name: "",
@@ -1942,7 +1942,7 @@ function generateTable(supernova, planlist, header) {
                     var that = this;
                     that._list_management_flag = true;
                     listManagementTable = $("#listManagementDisplay").dataTable({
-                                "aoColumnDefs": [ 
+                                "aoColumnDefs": [
                                     { "aTargets": [ 0 ], "bFilter": false, "bSortable": false, "sWidth": "10px" },
                                     { "aTargets": [ 1 ], "sTitle": "Supernovae", "sWidth": "10%", "sClass": "centerAlign" },
                                     { "aTargets": [ 2 ], "sTitle": "Right Ascension", "sType": "numeric", "sClass": "rightAlign" },
@@ -1959,7 +1959,7 @@ function generateTable(supernova, planlist, header) {
                                 "bLengthChange": true,
                                 "oLanguage": { "sSearch": "Filter: " },
                                 "sPaginationType": "full_numbers",
-                                "sScrollY": 0.9 * ($(window).height() - ($("#supernovae_dialog").parent(".ui-dialog").height() / 2)),                            
+                                "sScrollY": 0.9 * ($(window).height() - ($("#supernovae_dialog").parent(".ui-dialog").height() / 2)),
                                 "bLengthChange": false,
                                 "bDestroy": true
                             });
@@ -2054,7 +2054,7 @@ function generateTable(supernova, planlist, header) {
                                         }
 
                                         //that.userListIDs.push(this.object_id + '');
-                              
+
                                         listManagementTable.fnAddData(object_info);
                                         //console.log(listManagementTable.fnGetData());
                                     });
@@ -2157,7 +2157,7 @@ function generateTable(supernova, planlist, header) {
                                         object_info[7] = this.object_phase;
 
                                         that.userListIDs.push(this.object_id + '');
-                              
+
                                         newListTable.fnAddData(object_info);
                                     });
                                     //console.log(that.userListIDs);
@@ -2193,12 +2193,12 @@ function generateTable(supernova, planlist, header) {
         _setUpScheduler: function(){
                     var selectedList;
                     var that = this;
-                    $scheduleObjectDetailViewList = $( "#scheduleObjectView > div div:first ul:first" ); 
+                    $scheduleObjectDetailViewList = $( "#scheduleObjectView > div div:first ul:first" );
                     $schlistSelector = $( "#scheduleListSelector" );
                     that._scheduler_flag = true;
 
 
-                    var schedulerList_success = function(json_msg){ 
+                    var schedulerList_success = function(json_msg){
                         // 2D array
                         that._userLists = json_msg;
                         newListSelector = '<select id="scheduleListSelector">';    //create a new select to replace the old one
@@ -2275,10 +2275,10 @@ function generateTable(supernova, planlist, header) {
                     // var addOrRemoveDate = function(date)
                     // {
                     //     clickedDate = true;
-                    //   var index = jQuery.inArray(date, dates); 
+                    //   var index = jQuery.inArray(date, dates);
                     //   if (index >= 0)
                     //     removeDate(index);
-                    //   else 
+                    //   else
                     //     addDate(date);
                     // };
 
@@ -2292,12 +2292,12 @@ function generateTable(supernova, planlist, header) {
                     // };
 
                     // $("#scheduleObsDates").datepicker({
-                    //             onSelect: function(dateText, inst) { 
-                    //                 addOrRemoveDate(dateText); 
+                    //             onSelect: function(dateText, inst) {
+                    //                 addOrRemoveDate(dateText);
                     //                 //console.log("DATES: " + dates);
-                    //                 $("#scheduleObsDates").val(dates.join(", ")); 
-                    //                 $(this).data('datepicker').inline = true; 
-                    //                 $(this).datepicker("refresh"); 
+                    //                 $("#scheduleObsDates").val(dates.join(", "));
+                    //                 $(this).data('datepicker').inline = true;
+                    //                 $(this).datepicker("refresh");
                     //             },
                     //             dateFormat: 'yy-mm-dd',
                     //             beforeShowDay: function (date){
@@ -2307,17 +2307,17 @@ function generateTable(supernova, planlist, header) {
                     //                 var gotDate = $.inArray($.datepicker.formatDate($(this).datepicker('option', 'dateFormat'), date), dates);
                     //                 if (gotDate >= 0) {
                     //                     // Enable date so it can be deselected. Set style to be highlighted
-                    //                     return [true,"ui-state-highlight"]; 
+                    //                     return [true,"ui-state-highlight"];
                     //                 }
                     //                 // Dates not in the array are left enabled, but with no extra style
                     //                 return [true, ""];
                     //             },
                     //             numberOfMonths: 3,
                     //             onClose: function(dateText, inst) {
-                    //                 $(this).data('datepicker').inline = false; 
+                    //                 $(this).data('datepicker').inline = false;
                     //             }
                     // });
-                                        
+
         },
 
                //TODO
@@ -2326,7 +2326,7 @@ function generateTable(supernova, planlist, header) {
                 that._scheduler_flag = true;
                 var obj_missed_deadline = "";
                 var obj_incomplete = "";
-                
+
                 that._view_plan_flag = true;
                 cur_color_list = [];
 
@@ -2342,13 +2342,13 @@ function generateTable(supernova, planlist, header) {
 
                 if(obj_missed_deadline === "")
                 	obj_missed_deadline = "N/A";
-                
+
                 if(obj_incomplete === "")
                 	obj_incomplete = "N/A";
                 /***********************************Added by Wen*****************************************/
 			  $("#viewPlanDisplay").find("thead").children().remove();
 			  $("#viewPlanDisplay").find("tbody").children().remove();
-			  
+
               NightLength = new Object();
               for(i=0;i<json_input.data2.LNights.length;i++){
                		var list = json_input.data2.LNights[i];
@@ -2362,7 +2362,7 @@ function generateTable(supernova, planlist, header) {
 				}
 			}
                }
-               
+
                 var data = new Object();
 
 				var plan = json_msg["plan"];
@@ -2373,14 +2373,14 @@ function generateTable(supernova, planlist, header) {
 					dateList.push(daySchedule);
 				}
 				dateList.sort(); //Specified observation dates in order
-				
+
 				//Define redshift and bpeak for each supernova
 				var supernova_info = new Object(); // {"LSQ13baa":{"z":0.082,"bpeak":"2013-10-22"}}
 
 				for(i=0;i<json_input.data1.length;i++){
 					s0 = (json_input.data1[i])[0];
 					s1 = (json_input.data1[i])[1];
-					supernova_info[s0["_Name"]]={"z":s0["_Redshift"], "bpeak":s0["_B-Peak"], "obsTimes":s1["_obsTimes"]};	
+					supernova_info[s0["_Name"]]={"z":s0["_Redshift"], "bpeak":s0["_B-Peak"], "obsTimes":s1["_obsTimes"]};
 				}
 
 				for (i = 0; i < dateList.length; i++) {
@@ -2402,7 +2402,7 @@ function generateTable(supernova, planlist, header) {
 						}
 					}
 				};
-				
+
 				data.aoColumns = [ {"sTitle" : "Name"},
 				  { "sTitle": "z" },
 				   { "sTitle": "B-Peak" }
@@ -2410,7 +2410,7 @@ function generateTable(supernova, planlist, header) {
 				var result = generateTable(supernova_info, sPlan, data.aoColumns);
 				data.aaData = result.plan;
 				data.aoColumns = result.header;
-			
+
 				that._autoSwitch("100%", 4);
 				planTable = $("#viewPlanDisplay")
 						.dataTable(
@@ -2427,13 +2427,13 @@ function generateTable(supernova, planlist, header) {
 								}).css('width', '');
 
 				$("#viewPlanDisplay").css({"visibility" : "visible"});
-    
+
     /**********************************End by Wen********************************************/
 
 				$( "#planFeedback" ).empty().append("<p>Percentage of objects fully scheduled: <span>" + percentage_hit + "%</span></p>")
 				    .append("<br/><p>Objects that missed their deadline: <span>" + obj_missed_deadline + "</span></p>")
 				    .append("<br/><p>Objects that are incomplete: <span>" + obj_incomplete + "</span></p>");
-				
+
 				//$( "#tryagainPlan" ).button("disable");
 
         },
@@ -2491,7 +2491,7 @@ function generateTable(supernova, planlist, header) {
                         case 3:
                             $('#searchsupernovas').off('click.nameSearch click.browseAll click.RADecSearch click.advSearch');
                             $('#searchsupernovas').on('click.advSearch', function(){
-                                that._clean(3); 
+                                that._clean(3);
                                 if(that.validateSearch(3)) {
                                     that.search(null, null, null, null, null, advOptions);
 
@@ -2513,14 +2513,14 @@ function generateTable(supernova, planlist, header) {
                         //console.log("HEIGHT: " + calcHeight);
 
                         oTable = $("#searchResultsDisplay").dataTable( {
-                            "aoColumnDefs": [ 
+                            "aoColumnDefs": [
                                 { "aTargets": [ 0 ], "mDataProp": "names.0", "sTitle": "Supernovae" },
                                 { "aTargets": [ 1 ], "mDataProp": "ra", "sTitle": "Right Ascension", "sType": "numeric"},
                                 { "aTargets": [ 2 ], "mDataProp": "dec", "sTitle": "Declination", "sType": "numeric" },
                                 { "aTargets": [ 3 ], "mDataProp": "miscs.0.type", "sTitle": "Type" },
                                 { "aTargets": [ 4 ], "mDataProp": "miscs.0.disc_mag", "sTitle": "Magnitude", "sType": "numeric" },
                                 { "aTargets": [ 5 ], "mDataProp": "miscs.0.redshift", "sTitle": "Redshift", "sType": "numeric" },
-                                { "aTargets": [ 6 ], "mDataProp": "messages.0.update_time", "sTitle": "Date Reported" } 
+                                { "aTargets": [ 6 ], "mDataProp": "messages.0.update_time", "sTitle": "Date Reported" }
                             ],
                             "aaSorting": [sortArray],   //aaSorting is an array of arrays
                             "bAutoWidth": false,
@@ -2537,11 +2537,11 @@ function generateTable(supernova, planlist, header) {
                             "sAjaxSource": baseURLs.QUERY_URL,
                             "sServerMethod": "POST",
                             "fnServerParams": function( aoData ) {
-                                aoData.push( { "name": "search", "value": searchType }, { "name": "_name", "value": asscData.name }, 
+                                aoData.push( { "name": "search", "value": searchType }, { "name": "_name", "value": asscData.name },
                                     { "name": "_ra", "value": asscData._ra }, { "name": "_dec", "value": asscData._dec }, { "name": "_epsilon", "value": asscData._epsilon },
                                     { "name": "_browse", "value": asscData._browse }, { "name": "offset", "value": "all" }, { "name": "limit", "value": "all" },
                                     { "name": "_adv", "value": JSON.stringify(asscData._adv) }, { "name": "orderby", "value": "unique_id" }, { "name": "sort", "value": "DESC" } );
-                            }, 
+                            },
                             "fnServerData": function( sSource, aoData, fnCallback, oSettings ) {
                                 oSettings.jqXHR = $.ajax({
                                     "dataType": "json",
@@ -2579,18 +2579,18 @@ function generateTable(supernova, planlist, header) {
                                         revert: "invalid",
                                         cancel: ".row_dragged",     //cancel the rows that have already been dragged
                                         start: function(event, ui){
-                                    
+
                                         }
                                     }).on('click', function () {
                                             var id = this.id;
                                             var index = $.inArray(id, aSelected);
-                                             
+
                                             if ( index === -1 ) {
                                                 aSelected.push( id );
                                             } else {
                                                 aSelected.splice( index, 1 );
                                             }
-                                             
+
                                             $(this).toggleClass('row_selected');
                                         });
                                 });
@@ -2604,10 +2604,10 @@ function generateTable(supernova, planlist, header) {
                                 }
                             }
                         });
-                        
+
 
                         newListTable = $("#newListDisplay").dataTable({
-                            "aoColumnDefs": [ 
+                            "aoColumnDefs": [
                                 { "aTargets": [ 0 ], "bFilter": false, "bSortable": false, "sWidth": "10px" },
                                 { "aTargets": [ 1 ], "sTitle": "Supernovae", "sWidth": "10%" },
                                 { "aTargets": [ 2 ], "sTitle": "Right Ascension", "sType": "numeric" },
@@ -2627,7 +2627,7 @@ function generateTable(supernova, planlist, header) {
                             "bLengthChange": false,
                             "bDestroy": true
                         });
-                        
+
                         $("#supernovaNewListDisplay")
                             //.css("height", 0.85 * ($(window).height() - ($("#supernovae_dialog").parent(".ui-dialog").height() / 2)))
                             .droppable({
@@ -2645,7 +2645,7 @@ function generateTable(supernova, planlist, header) {
                                         $(this).children('td').each(function() {            //iterate through the td's in the table rows to retrieve the data
                                             innerAddedData[k] = $(this).text();             //add each row cell's text into a new array
                                             k++;
-                                        }); 
+                                        });
                                         addedData[i] = innerAddedData;                      //set the arrays in the 2D array of addedData
                                         draggableIDs[i] = $(this).attr( "id" );             //retrieve the id of the dragged row to add/remove classes and enable/disable dragging
                                         i++;
@@ -2669,10 +2669,10 @@ function generateTable(supernova, planlist, header) {
                                             aDragged.splice( draggedIndex, 1 );
                                         }
                                     }
-                            
+
                                 }
                             });
-                        
+
 
                         $(window).resize(function(){
                             $('div.dataTables_scrollBody').css('height', 0.8 * ($(window).height() - ($("#supernovae_dialog").parent(".ui-dialog").height() / 2)));
@@ -2720,7 +2720,7 @@ function generateTable(supernova, planlist, header) {
                         });
                     });
                     // Reset the values if all of the fields haven't been filled out
-                    if($('[id^="bpeaktf"]').val() === '') { objectsInvolved = false; }   
+                    if($('[id^="bpeaktf"]').val() === '') { objectsInvolved = false; }
                 } else {
                     // If there were no objects, populate the fields with the master_objects_array values
                     var index = 0;
@@ -2742,7 +2742,7 @@ function generateTable(supernova, planlist, header) {
                     $.each($('[id^="obsgaptf"]'), function(){ $(this).val('1'); });
                     // Populate initial values of priority with 0.5
                     $.each($('[id^="prioritytf"]'), function(){ $(this).val('0.5'); });
-                } 
+                }
             } else {
                 console.log("OBJ INVOLVED: " + objectsInvolved);
                  // Initial check of textfields to see if they are populated or not
@@ -2758,7 +2758,7 @@ function generateTable(supernova, planlist, header) {
                     $.each($('[id^="prioritytf"]'), function(){
                         $(this).val('0.5');
                     });
-                } 
+                }
                 $( '#updateExperiment' ).button('option', 'disabled', false);
                 // Manually trigger a keyup for the number of nights textfield with the num_nights as input value
                 //console.log("NUM NIGHTS: " + json_msg['num_nights']);
@@ -2789,9 +2789,9 @@ function generateTable(supernova, planlist, header) {
                 });
                 objectsInvolved = false;
             }
-            
+
         },
-        
+
         /*******************************************/
         // Handle experiment validation.            /
         /*******************************************/
@@ -2928,7 +2928,7 @@ function generateTable(supernova, planlist, header) {
                         if($.trim($(this).val()) === ""){
                             new_error = new SNError( 4, "Please fill in the number of hours and the nights!", $(this), feedDisplay, 0);
                             new_error.displayError();
-                            
+
                             planSuccess = false;
                         }
                     });
@@ -2950,7 +2950,7 @@ function generateTable(supernova, planlist, header) {
                         if((that.master_objects_array[key].priority && that.master_objects_array[key].priority !== " " && that.master_objects_array[key].priority.length > 0)
                             && (that.master_objects_array[key].bpeak && that.master_objects_array[key].bpeak !== " " && that.master_objects_array[key].bpeak.length > 0)
                             && (that.master_objects_array[key].obsgap && that.master_objects_array[key].obsgap !== " " && that.master_objects_array[key].obsgap.length > 0)
-                            && (that.master_objects_array[key].obstimes && that.master_objects_array[key].obstimes !== " " && that.master_objects_array[key].obstimes.length > 0)) 
+                            && (that.master_objects_array[key].obstimes && that.master_objects_array[key].obstimes !== " " && that.master_objects_array[key].obstimes.length > 0))
                         {
 
                         } else {
@@ -2978,16 +2978,16 @@ function generateTable(supernova, planlist, header) {
                         if(msg_counter > 0) {
                         }
 
-                        new_error.displayError(); 
-                        msg_counter++;    
-                        
+                        new_error.displayError();
+                        msg_counter++;
+
                         planSuccess = false;
                     }
                 });
                 // if the msg_counter is 0, that means there was no errors found in the fields, so remove the object from the error objects
                 if(msg_counter === 0) {
                     // Make sure to check if the object is in the error list (HAS TO HAVE AN INDEX GREATER THAN OR EQUAL TO 0!!)
-                    if($.inArray(objText, that.errorObjs) >= 0)                        
+                    if($.inArray(objText, that.errorObjs) >= 0)
                         that.errorObjs.splice($.inArray(objText, that.errorObjs), 1);
                 }
             }
@@ -3015,7 +3015,7 @@ function generateTable(supernova, planlist, header) {
                     /* Clear previous error markings. */
                     var name_field = $( "#obj_name" );
                     that._clearTFCSS(name_field);
-                    
+
                     if( name_field.val() && name_field.val() != ""){
                         return true;
                     } else {
@@ -3033,7 +3033,7 @@ function generateTable(supernova, planlist, header) {
                     radec_field.each(function() {
                         if($(this).val() === "") {
                             var new_error = new SNError( 1, "Please fill in the " + $(this).prev("label").text(), $(this), $(this).next( "label.snerror" ), 0 );
-                            new_error.displayError();     
+                            new_error.displayError();
                             radecbool = false;
                         }
                     });
@@ -3061,8 +3061,8 @@ function generateTable(supernova, planlist, header) {
                 return true;
         }
 
-    });     
-                
+    });
+
 })(jQuery, window, document);
 
 function initSupernovaeExt(){
@@ -3070,10 +3070,10 @@ function initSupernovaeExt(){
     $(document).on({
         'supernovaeopen': function(event, ui) {
             $(window).trigger("resize.responsive");     //trigger the resize responsive event on the window so the fluidDialog can act upon open
-            fluidDialog(); 
+            fluidDialog();
         },
         'supernovaeclose': function(event, ui) {
-            $(window).off("resize.responsive");  
+            $(window).off("resize.responsive");
         }
     }, '.ui-dialog');
 
