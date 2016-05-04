@@ -4,12 +4,12 @@
 * Description: SNeT v0.2 extension to the AstroShelf project
 *
 * 10/21/2013 - Now on SNeT v0.3
-* * Revised by: Wen Gao
+* * Revised by: Nikhil Venkatesh
 * Date: 10/21/2013
 * Description: Change the layout of View Plan page
 ************************************************************/
 
-/******************************Revision by Wen Begin ****************/
+/******************************Revision by Nikhil Begin ****************/
 
 var dateList = new Array();
 var NightLength = new Object();
@@ -93,7 +93,7 @@ function isAboveLimit(date, scheduled){
 
 
 /* Revise table layout functions
- * By Wen, 10/09/2013
+ * By Nikhil, 10/09/2013
  * */
 function generateTable(supernova, planlist, header) {
 	var rowsize = 0;
@@ -198,7 +198,7 @@ function generateTable(supernova, planlist, header) {
 		};
 }
 
-/******************************Revision by Wen End ****************/
+/******************************Revision by Nikhil End ****************/
 
 (function($, window, document, undefined) {
 
@@ -2345,7 +2345,7 @@ function generateTable(supernova, planlist, header) {
 
                 if(obj_incomplete === "")
                 	obj_incomplete = "N/A";
-                /***********************************Added by Wen*****************************************/
+                /***********************************Added by Nikhil*****************************************/
 			  $("#viewPlanDisplay").find("thead").children().remove();
 			  $("#viewPlanDisplay").find("tbody").children().remove();
 
@@ -2428,7 +2428,7 @@ function generateTable(supernova, planlist, header) {
 
 				$("#viewPlanDisplay").css({"visibility" : "visible"});
 
-    /**********************************End by Wen********************************************/
+    /**********************************End by Nikhil********************************************/
 
 				$( "#planFeedback" ).empty().append("<p>Percentage of objects fully scheduled: <span>" + percentage_hit + "%</span></p>")
 				    .append("<br/><p>Objects that missed their deadline: <span>" + obj_missed_deadline + "</span></p>")
